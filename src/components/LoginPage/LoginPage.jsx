@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
-import {useLocation,useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const LoginPage = () => {
 

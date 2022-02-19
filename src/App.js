@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -8,14 +8,16 @@ import MyLayout from './MyLayout';
 
 
 function App() {
+
+  const [user, setUser] = useState()
   return (
     <div className="App">
      <BrowserRouter>
      <Routes>
        <Route path='/' element={<LoginPage/>}/>
        <Route path='/home/:id' element={
-              <MyLayout>
-              <Home/>
+              <MyLayout user={user} setUser={setUser}>
+              <Home user={user} setUser={setUser}/>
               </MyLayout>}/>
      </Routes>
      </BrowserRouter>
