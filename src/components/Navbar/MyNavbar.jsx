@@ -1,17 +1,17 @@
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import brand from '../../assets/highpoint-sm.jpeg'
+import brand from '../../assets/highpoint-maroon.png'
+import {BsCart4} from 'react-icons/bs'
 import './Navbar.css'
 
 function MyNavbar({user}) {
     return ( 
-<Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor:"black"}}>
-  <Navbar.Brand href="#home" ><img style={{width:'50px',padding:'0', margin:"0"}} src={brand} alt="brand image"/></Navbar.Brand>
+<Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor:"rgb(53,1,12)"}}>
+  <Navbar.Brand href="#home" ><img style={{width:'130px',padding:'0', margin:"0"}} src={brand} alt="brand image"/></Navbar.Brand>
   <Container>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav" className='d-flex flex-column'>
     <Nav className="ml-auto">
       <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
         
       <NavDropdown style={{backgroundColor:'grey',borderRadius:"50px",width:'200px'}} title={<div><span>{user.name}</span><img style={{width:'20px', border:'1px solid white', borderRadius:'50%', padding:'2px',marginLeft:'5px'}}src={user.avatar || "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png?20160212005950"} alt='user image'/></div>} id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
@@ -19,6 +19,7 @@ function MyNavbar({user}) {
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Link href="#cart" className='text-white' style={{fontSize:'25px'}}><BsCart4/></Nav.Link>
     </Nav>
     {/* <Nav className="ml-auto">
       

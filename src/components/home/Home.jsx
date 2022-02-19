@@ -48,7 +48,7 @@ function Home({user, setUser}) {
 
     return ( 
         <Container>
-            <Row>
+            <Row className="pt-4">
                 {products && products.map(product => <ProductCard product={product}/>)}
             </Row>
         </Container>
