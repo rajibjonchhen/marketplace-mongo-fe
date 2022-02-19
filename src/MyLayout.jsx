@@ -5,8 +5,8 @@ import MyNavbar from "./components/Navbar/MyNavbar";
 
 function MyLayout({children, user}) {
     return ( 
-        <Container fluid>
-            <MyNavbar user={user}/>
+        <Container  className='fluid w-100 m-0 p-0' fluid="true" >
+            {user && <MyNavbar user={user}/>}
             {children}
             <MyFooter/>
         </Container>

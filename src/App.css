@@ -45,3 +45,6 @@
 .pointer:hover {
   transform: scale(1.1) !important
 }
+.border-top{
+  border-top: 2px solid white;
+}

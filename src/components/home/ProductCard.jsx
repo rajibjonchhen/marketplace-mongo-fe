@@ -1,18 +1,20 @@
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
+import productImg from '../../assets/highpoint-sm.jpeg'
 
-function ProductCard() {
+function ProductCard({product}) {
     return (  
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+        <Col>
+            <Card style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={product.imageUrl || productImg} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                    {product.description}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary">Add to cart</Button>
             </Card.Body>
-    </Card>
+        </Card>
+    </Col>
     );
 }
 

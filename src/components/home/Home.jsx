@@ -6,7 +6,7 @@ import ProductCard from "./ProductCard";
 function Home({user, setUser}) {
 
     const params = useParams()
-    const [products, setProducts] = useState()
+    const [products, setProducts] = useState([])
 
     useEffect(()=>{
         let id = params.id
@@ -36,8 +36,9 @@ function Home({user, setUser}) {
             const response = await fetch(`${url}/products`)
             if(response.ok){
                 let data = await response.json()
-                if(data.length > 0){
-                    setProducts(data)
+                if(data){
+                    console.log(data)
+                    setProducts(data.products)
                 }
             }
         } catch (error) {
@@ -48,7 +49,7 @@ function Home({user, setUser}) {
     return ( 
         <Container>
             <Row>
-                {products && products.map(product => <ProductCard/>)}
+                {products && products.map(product => <ProductCard product={product}/>)}
             </Row>
         </Container>
      );
