@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  transform: scale(1.1) !important
+}
