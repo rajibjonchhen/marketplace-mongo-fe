@@ -44,7 +44,7 @@ function DetailPage() {
                         data.reviews.forEach(item => {
                             totalRating = totalRating + item.rate
                         })
-                        setProductRating(totalRating/(data.reviews.length+1))
+                        setProductRating((totalRating/(data.reviews.length+1)).toFixed(1))
                     } else{
                         console.log("error in fetching product")
                         setIsLoading(false)
@@ -92,7 +92,7 @@ function DetailPage() {
                 <Row className="justify-content-between">
                     <Col>
                         <img className='rounded-lg' style={{width:'500px'}} src={product.imageUrl || productImg} alt={product.name}/>
-                            <Badge pill variant='warning' style={{position:'absolute',top:'10px',left:'50px'}}>{productRating}</Badge>
+                            <div  className='bg-warning h4 p-1 rounded-lg' style={{position:'absolute',top:'10px',left:'50px', width:'45px'}}>{productRating}</div>
                     </Col>
                     <Col >
                         <div className='bg-light h-100 p-3'>
