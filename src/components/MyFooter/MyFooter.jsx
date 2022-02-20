@@ -2,7 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 function MyFooter() {
     return ( 
-    <Container fluid className='mt-2 border-top py-3' style={{backgroundColor:'rgb(53,1,13)', position:'fixed', bottom:'0'}}>
+    <Container fluid className='mt-4 border-top py-3' style={{backgroundColor:'rgb(53,1,13)', position:'fixed', bottom:'0', fontSize:'12px'}}>
        <Container>
         <Row>
             <Col>

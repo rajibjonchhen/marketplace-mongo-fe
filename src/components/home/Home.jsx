@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import Loader from "../../Loader";
 import ProductCard from "./ProductCard";
 
-function Home({user, setUser}) {
+function Home({user, setUser, fetchUser, fetchCart}) {
 
     const params = useParams()
     const [products, setProducts] = useState([])
@@ -16,21 +16,7 @@ function Home({user, setUser}) {
         fetchProducts(id)
     },[])
 
-    const fetchUser = async(id) => {
-        const url =  `http://localhost:3001`
-        try {
-            const response = await fetch(`${url}/users/${id}`)
-            if(response.ok){
-                let data = await response.json()
-                if(data._id){
-                    console.log(data)
-                    setUser(data)
-                }
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
+  
 
     const fetchProducts = async(id) => {
         const url = `http://localhost:3001`
@@ -57,9 +43,8 @@ function Home({user, setUser}) {
     return ( 
         <Container >
             <Row className="pt-4">
-                {isLoading? (<Loader/>):(products && products.map(product => <ProductCard product={product}/>))
+                {isLoading? (<Loader/>):(products && products.map(product => <ProductCard product={product} user={user} fetchCart={fetchCart}/>))
                 }  
-                
             </Row>
         </Container>
      );
