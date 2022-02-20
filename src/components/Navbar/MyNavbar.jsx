@@ -14,7 +14,8 @@ function MyNavbar({user}) {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav" className='d-flex flex-column'>
     <Nav className="ml-auto">
-      <Nav.Link href="#features">Home</Nav.Link>
+      <Nav.Link>Home</Nav.Link>
+      <Nav.Link>Back-Office</Nav.Link>
       <Nav.Link href="#cart" className='text-white'><BsCart4/></Nav.Link>
         
       <NavDropdown  title={<div style={{backgroundColor:'grey',borderRadius:"50px",width:'200px', padding:'3px 0'}}><span>{user.name}</span><img style={{width:'20px', border:'1px solid white', borderRadius:'50%',marginLeft:'4px'}}src={user.avatar || "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png?20160212005950"} alt='user image'/></div>} id="collasible-nav-dropdown">
