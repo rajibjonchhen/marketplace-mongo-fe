@@ -3,8 +3,13 @@ import brand from '../../assets/highpoint.png'
 import {BsCart4} from 'react-icons/bs'
 import './Navbar.css'
 import { Link } from "react-router-dom";
+import RegisterUserPage from "../LoginPage/RegisterUserPage";
+import { useState } from "react";
+import EditProfile from "./EditProfile";
 
 function MyNavbar({user}) {
+
+    const [showEditPage, setShowEditPage] = useState()
     return ( 
 <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor:"rgb(53,1,12)",position:'sticky', top:'0', zIndex:'10'}}>
   <Container>
@@ -19,7 +24,7 @@ function MyNavbar({user}) {
       <Nav.Link href="#cart" className='text-white'><BsCart4/></Nav.Link>
         
       <NavDropdown  title={<div style={{backgroundColor:'grey',borderRadius:"50px",width:'200px', padding:'3px 0'}}><span>{user.name}</span><img style={{width:'20px', border:'1px solid white', borderRadius:'50%',marginLeft:'4px'}}src={user.avatar || "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/User_font_awesome.svg/1024px-User_font_awesome.svg.png?20160212005950"} alt='user image'/></div>} id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
+        <NavDropdown.Item onClick={(e) => setShowEditPage(true)}>Edit Profile</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
@@ -42,6 +47,9 @@ function MyNavbar({user}) {
 
     </Nav> */}
   </Navbar.Collapse>
+  <div style={{display:setShowEditPage? 'block':'none', position:'absolute', top:'0', bottom:'0', left:'0', right:'0' }}>
+        <EditProfile user={user}/>
+  </div>
   </Container>
 </Navbar>
        );
